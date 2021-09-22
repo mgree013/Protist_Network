@@ -10,12 +10,12 @@ library(AICcmodavg)
 library(betareg)
 #Data
 #1)Occupancy Data (see "Organize_data.R")
-
+setwd("/Users/matthewdouglasgreen/Dropbox/Protist Lab Data/Kurt_Matthew_Shared Data/Dendritic Data/Network.Summer.19/New_analysis")
 source("Code/Organize_data.R")
 all_pa_datas
 
 #Density Data
-Dataaa = read.csv("data/new.net.2.data.csv")
+Dataaa = read.csv("Data/new.net.2.data.csv")
 summary(Dataaa)
 
 #1) Figure 2
