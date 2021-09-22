@@ -11,7 +11,7 @@ library(betareg)
 #Data
 #1)Occupancy Data (see "Organize_data.R")
 
-source("Code/Organize_data.r")
+source("Code/Organize_data.R")
 all_pa_datas
 
 #Density Data
