@@ -585,6 +585,13 @@ AICc(y,y1)
 pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
 pseudoR0
 
+dog=list()
+dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_pred)
+dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_pred)
+Modnames <- paste("mod", 1:length(dog), sep = " ")
+reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
+
+
 env_density_prey<-env_density%>%filter(species=="prey")
 y<-glm(density~bac.density_log, family=gaussian(link = "identity"), data=env_density_prey)
 y1<-glm(density~1, family=gaussian(link = "identity"), data=env_density_prey)
@@ -592,6 +599,13 @@ summary(y)
 AICc(y,y1)
 pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
 pseudoR0
+
+dog=list()
+dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_prey)
+dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_prey)
+Modnames <- paste("mod", 1:length(dog), sep = " ")
+reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
+reported.table2
 
 b1<-env_density2%>%
   ggplot(aes(x=(pred),y=prey))+ 
@@ -611,6 +625,13 @@ summary(y)
 AICc(y,y1)
 pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
 pseudoR0
+
+dog=list()
+dog[[1]]<-glm(prey~pred , family=gaussian(link = "identity"), data=env_density2)
+dog[[2]]<-glm(prey~1 , family=gaussian(link = "identity"), data=env_density2)
+Modnames <- paste("mod", 1:length(dog), sep = " ")
+reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
+reported.table2
 
 #8B) Phase 1
 
