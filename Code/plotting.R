@@ -3,17 +3,9 @@
 #October 15, 2021
 #Authors: Matthew green, Clara Woodie, Megan Whitesell, and Kurt E. Anderson
 
-library(ggplot2)
-library(viridis)
-library(tidyverse)
-library(cowplot)
-library(AICcmodavg)
-library(betareg)
-library(DataCombine)
-library(performance)
+
 #Data
 #1)Occupancy Data (see "Organize_data.R")
-setwd("/Users/matthewdouglasgreen/Dropbox/Protist Lab Data/Kurt_Matthew_Shared Data/Dendritic Data/Network.Summer.19/New_analysis")
 source("Code/Organize_data.R")
 all_pa_datas
 

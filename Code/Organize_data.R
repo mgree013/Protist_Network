@@ -1,5 +1,12 @@
 library(tidyverse)
-
+library(ggplot2)
+library(viridis)
+library(tidyverse)
+library(cowplot)
+library(AICcmodavg)
+library(betareg)
+library(DataCombine)
+library(performance)
 
 meg_data = read.csv("Data/megan_unconnected_pa.csv")
 summary(meg_data)
@@ -90,7 +97,7 @@ all_pa_datas$nghbr_connect<-as.numeric(all_pa_datas$nghbr_connect)
 all_pa_datas<-all_pa_datas%>%
   mutate_if(is.character, 
           str_replace_all, pattern = "isolated", replacement = "control")
-
+str(all_pa_datas)
 all_pa_datas%>%
   ggplot(aes(x=bottle.number,y=nghbr_connect))+
            geom_point()+facet_grid(~structure)
