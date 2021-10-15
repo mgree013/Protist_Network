@@ -1,7 +1,8 @@
-#Occupancy Analaysis
+#Occupancy Analysis
 library(AICcmodavg)
+library(tidyverse)
 ########################################################################################################################
-# Part 1)Occupany by network
+# Part 1) Occupancy by network
 
 prop_pa_rep_no_t<-all_pa_datas%>%
   #filter(day < 75)%>%
