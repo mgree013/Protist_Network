@@ -568,26 +568,6 @@ a1<-env_density%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-env_density_pred<-env_density%>%filter(species=="pred")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_pred)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_pred)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-env_density_prey<-env_density%>%filter(species=="prey")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_prey)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_prey)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
 b1<-env_density2%>%
   ggplot(aes(x=(pred),y=prey))+ 
   geom_point()+
@@ -599,15 +579,6 @@ b1<-env_density2%>%
   labs(x="Predator density",y=" Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) 
-
-dog=list()
-dog[[1]]<-glm(prey~pred , family=gaussian(link = "identity"), data=env_density2)
-dog[[2]]<-glm(prey~1 , family=gaussian(link = "identity"), data=env_density2)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = FALSE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 #8B) Phase 1
 a2<-env_density_1%>%
@@ -622,25 +593,6 @@ a2<-env_density_1%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-env_density_1_pred<-env_density_1%>%filter(species=="pred")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_1_pred)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_1_pred)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = FALSE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-env_density_1_prey<-env_density_1%>%filter(species=="prey")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_1_prey)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_1_prey)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 b2<-env_density2_1%>%
   ggplot(aes(x=(pred),y=prey))+ 
@@ -652,14 +604,6 @@ b2<-env_density2_1%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) 
 
-dog=list()
-dog[[1]]<-glm(prey~pred , family=gaussian(link = "identity"), data=env_density2_1)
-dog[[2]]<-glm(prey~1 , family=gaussian(link = "identity"), data=env_density2_1)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 #8B) Phase 2
 a3<-env_density_2%>%
@@ -674,26 +618,6 @@ a3<-env_density_2%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-env_density_2_pred<-env_density_2%>%filter(species=="pred")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_2_pred)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_2_pred)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-env_density_2_prey<-env_density_2%>%filter(species=="prey")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_2_prey)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_2_prey)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
 b3<-env_density2_2%>%
   ggplot(aes(x=(pred),y=prey))+ 
   geom_point()+
@@ -705,17 +629,7 @@ b3<-env_density2_2%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) 
 
-dog=list()
-dog[[1]]<-glm(prey~pred , family=gaussian(link = "identity"), data=env_density2_2)
-dog[[2]]<-glm(prey~1 , family=gaussian(link = "identity"), data=env_density2_2)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
 #8B) Phase 3
-
 a4<-env_density_3%>%
   ggplot(aes(x=(bac.density_log),y=density, colour=species))+ 
   geom_point()+
@@ -728,26 +642,6 @@ a4<-env_density_3%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-env_density_3_pred<-env_density_3%>%filter(species=="pred")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_3_pred)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_3_pred)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-env_density_3_prey<-env_density_3%>%filter(species=="prey")
-dog=list()
-dog[[1]]<-glm(density~bac.density_log , family=gaussian(link = "identity"), data=env_density_3_prey)
-dog[[2]]<-glm(density~1 , family=gaussian(link = "identity"), data=env_density_3_prey)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
 b4<-env_density2_3%>%
   ggplot(aes(x=(pred),y=prey))+ 
   geom_point()+
@@ -758,15 +652,6 @@ b4<-env_density2_3%>%
   labs(x="Predator density",y=" Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) 
-
-dog=list()
-dog[[1]]<-glm(prey~pred , family=gaussian(link = "identity"), data=env_density2_3)
-dog[[2]]<-glm(prey~1 , family=gaussian(link = "identity"), data=env_density2_3)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 plot_grid(a1,b1,a2,b2,a3,b3,a4,b4, ncol=2)
 ##################################################################################################################################################################################################################
@@ -837,16 +722,6 @@ Ext_col_data_network<-newer_pa_datas%>%
 
 ####################################################
 #6a: Prey observed occupancy network level
-dog<-list()
-dog[[1]]<-betareg(pred.prey.oc~1,  data=Ext_col_data_network)
-dog[[2]]<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_network)
-dog[[3]]<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_network, link = "loglog")
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 y1<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_network)
 dc<-Ext_col_data_network%>%
@@ -862,18 +737,8 @@ dc<-Ext_col_data_network%>%
 
 ####################################################
 #Figure 6b: pred obs occupancy network level
-dog<-list()
-dog[[1]]<-betareg(pred.pred.oc~1,  data=Ext_col_data_network)
-dog[[2]]<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_network)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 y<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_network)
-
 da<-Ext_col_data_network%>%
   ggplot(aes(x=pred.occupancy,y=pred.pred.oc))+ 
   geom_point()+
@@ -887,17 +752,6 @@ da<-Ext_col_data_network%>%
 
 ####################################################
 #6c: Prey occuonacy bottle level
-y<-glm(pred.prey.oc~prey.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
-dog<-list()
-dog[[1]]<-betareg(pred.prey.oc~1,  data=Ext_col_data_glm)
-dog[[2]]<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_glm)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
 
 y2<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_glm)
 pred.a<-Ext_col_data_glm%>%
@@ -913,16 +767,6 @@ pred.a<-Ext_col_data_glm%>%
 
 ####################################################
 #6d: Predator occupancy bottle level
-dog<-list()
-dog[[1]]<-betareg(pred.pred.oc~1,  data=Ext_col_data_glm)
-dog[[2]]<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_glm)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
 
 y3<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_glm)
 pred.b<-Ext_col_data_glm%>%
@@ -949,21 +793,6 @@ pred.c1<-Ext_col_data_glm%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-
-z <- cbind(Ext_col_data_glm$colonization_sum_prey, Ext_col_data_glm$non_colonization_sum_prey)
-dog<-list()
-dog[[1]]<-glm(z~1, family=binomial(link = "logit"),  data=Ext_col_data_glm)
-dog[[2]]<-glm(z~prey.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-z <- cbind(Ext_col_data_glm$colonization_sum_prey, Ext_col_data_glm$non_colonization_sum_prey)
-y<-glm(z~prey.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
 ####################################################
 #6e: prey occupancy bottle level from extinction prob
 pred.e1<-Ext_col_data_glm%>%
@@ -976,20 +805,6 @@ pred.e1<-Ext_col_data_glm%>%
   labs(y="Prey Extinction Probaility",x="Prey Observed Occupancy")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
-
-z <- cbind(Ext_col_data_glm$extinction_sum_prey, Ext_col_data_glm$non_extinction_sum_prey)
-dog<-list()
-dog[[1]]<-glm(z~1, family=binomial(link = "logit"),  data=Ext_col_data_glm)
-dog[[2]]<-glm(z~prey.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-
-y<-glm(z~prey.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
-pseudoR0
 
 ####################################################
 #6e: predator occupancy bottle level from colonization prob
@@ -1004,21 +819,6 @@ pred.d1<-Ext_col_data_glm%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-z <- cbind(Ext_col_data_glm$colonization_sum_pred, Ext_col_data_glm$non_colonization_sum_pred)
-y<-glm(z~pred.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
-dog<-list()
-dog[[1]]<-glm(z~1, family=binomial(link = "logit"),  data=Ext_col_data_glm)
-dog[[2]]<-glm(z~pred.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
-pseudoR0
-
 ####################################################
 #6e: predator occupancy bottle level from extinction prob
 pred.f1<-Ext_col_data_glm%>%
@@ -1032,21 +832,6 @@ pred.f1<-Ext_col_data_glm%>%
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
-z <- cbind(Ext_col_data_glm$extinction_sum_pred, Ext_col_data_glm$non_extinction_sum_pred)
-y<-glm(z~pred.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-dog<-list()
-dog[[1]]<-glm(z~1, family=binomial(link = "logit"),  data=Ext_col_data_glm)
-dog[[2]]<-glm(z~pred.occupancy, family=binomial(link = "logit"), data=Ext_col_data_glm)
-
-Modnames <- paste("mod", 1:length(dog), sep = " ")
-reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = TRUE)
-reported.table2
-r2(dog[[1]])
-r2(dog[[2]])
-pseudoR0 <- ((y$null.deviance-y$deviance)/y$null.deviance)
-pseudoR0
 
 ###############
 plot_grid(dc,da,pred.a,pred.b,pred.c1,pred.d1,pred.e1,pred.f1,ncol=2)
-
-###############
