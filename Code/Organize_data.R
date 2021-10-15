@@ -1,8 +1,7 @@
 library(tidyverse)
 
-setwd("~/Dropbox/Protist Lab Data/Kurt_Matthew_Shared Data/Dendritic Data/Network.Summer.19/New_analysis/Data/")
 
-meg_data = read.csv("megan_unconnected_pa.csv")
+meg_data = read.csv("Data/megan_unconnected_pa.csv")
 summary(meg_data)
 
 meg_datas<-meg_data%>% group_by(day,date,bottle,species)%>% 
@@ -30,7 +29,7 @@ meg_datas<-meg_data%>% group_by(day,date,bottle,species)%>%
 
 ###############################################################################################################################################################################
 #Big Network Exp
-Data = read.csv("~/Dropbox/Protist Lab Data/Kurt_Matthew_Shared Data/Dendritic Data/Network.Summer.19/Data/Net.2.data.csv")
+Data = read.csv("Data/Net.2.data.csv")
 summary(Data)
 str(Data)
 
@@ -44,8 +43,8 @@ str(meg_datas)
 meg_datas$bottle.number<-as.integer(meg_datas$bottle.number)
 
 all_pa_data<-full_join(Datas,meg_datas)
-str(all_pa_datas)
-summary(all_pa_datas)
+str(all_pa_data)
+summary(all_pa_data)
 
 
 all_pa_datas<-all_pa_data%>%mutate(total.bottle.nmbr=if_else(structure == "isolated","8",if_else(bottle == "dendritic","60","60")))%>%
@@ -89,8 +88,7 @@ all_pa_datas$total.bottle.nmbr_connect_per_rep<-as.numeric(all_pa_datas$total.bo
 all_pa_datas$total.bottle.nmbr_position_per_rep<-as.numeric(all_pa_datas$total.bottle.nmbr_position_per_rep)                                                                              
 all_pa_datas$nghbr_connect<-as.numeric(all_pa_datas$nghbr_connect)                                                                              
 all_pa_datas<-all_pa_datas%>%
-  mutate_if( 
-          is.character, 
+  mutate_if(is.character, 
           str_replace_all, pattern = "isolated", replacement = "control")
 
 all_pa_datas%>%
@@ -101,10 +99,10 @@ all_pa_datas%>%
 env<-read.csv("Data/Env.variables.csv")
 str(env)
 envz<-env%>%
-  dplyr::select(-c(bottle, bottle.number,replicate,position)))%>%
+  dplyr::select(-c(bottle, bottle.number,replicate,position))%>%
   dplyr::group_by(structure)%>%
   dplyr::summarise(across(everything(), list(mean)))
-  #pivot_longer(cols=vol.bottle.b4filter:percent.red ,names_to = "structure", values_to="occupancy")
+
 envzz<-as.data.frame(t(envz))
 write.csv(envzz, file="Data/summary.env.csv")
          
