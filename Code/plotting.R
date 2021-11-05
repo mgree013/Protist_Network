@@ -259,16 +259,17 @@ a1<-Ext_col_data_all%>%
   ggtitle("a)") +
   labs(x="Network Structure",y="Exctinction Probability Predator")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank()) +theme(legend.position = c(0.85, 0.9),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+#+ theme(legend.position = "none")
 
 a2<-Ext_col_data_all%>%
   ggplot(aes(x=as.factor(connectivity), y=extinction_prob_pred, fill=as.factor(connectivity)))+
   geom_boxplot()+
   ggtitle("b)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Exctinction Probability Predator")+
+  labs(x="Connectivity",y="Exctinction Probability Predator",z="Connectivity")+guides(fill=guide_legend(title="Connectivity"))+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank()) +theme(legend.position = c(0.85, 0.8),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
 
 a3<-Ext_col_data_all%>%
   ggplot(aes(x=structure, y=colonization_prob_pred, fill=structure))+
@@ -317,7 +318,7 @@ Ext_col_data_1<-newer_pa_datas%>%
     ext_colon_ratio_pred=extinction_prob_pred/colonization_prob_pred,ext_colon_ratio_prey=extinction_prob_prey/colonization_prob_prey)%>%
   left_join(all_pa_dataz, by="bottle")%>%
   filter(structure !="control")
-view(Ext_col_data_1)
+#view(Ext_col_data_1)
 
 b1<-Ext_col_data_1%>%
   ggplot(aes(x=structure, y=extinction_prob_prey, fill=structure))+
