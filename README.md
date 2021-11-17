@@ -14,5 +14,5 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 6) Trophic_analysis.R runs anlaysis for Table S8
 
 
-## Photos of Experimental Setup
+## Photo of Experimental Setup
 ![](Figs/Photo_networks.jpeg)
