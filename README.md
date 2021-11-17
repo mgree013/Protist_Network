@@ -1,5 +1,8 @@
-# Protist_Network
-The effects of spatial network structure on predator-prey dynamics
+# Protist Network Project
+
+Title: Long transients and network structure effect persistence and spatial predator-prey dynamics in experimental microcosms
+
+Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderson
 
 # Structure of Code
 
@@ -9,3 +12,7 @@ The effects of spatial network structure on predator-prey dynamics
 4) ext_col_phases_analysis.R runs analysis for ext/col dynamics through the phases (Table S6)
 5) pred_ccup_analysis.R runs anlaysis for Table S7
 6) Trophic_analysis.R runs anlaysis for Table S8
+
+
+## Photos of Experimental Setup
+![](Figs/Photo_networks.jpeg)
