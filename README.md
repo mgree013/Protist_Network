@@ -20,34 +20,40 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 ### Photo of Experimental Setup
 ![](Figs/Photo_networks.jpeg)
 
-### Figure of Experimental Setup
+### Fig 1: Figure of Experimental Setup
 ![](Figs/Fig1.png)
 
 # Results
 
-### Time Series of Predator-Prey Dynamics
+### Fig 2: Time Series of Predator-Prey Dynamics
 ![](Figs/Fig2.png)
 
-### Predator-Prey Occupancy Dynamics
+
+### Fig 3: Predator-Prey Occupancy Dynamics
 ![](Figs/Fig3.png)
 
-### Predator-Prey Extinction Dynamics
+
+### Fig 4: Predator-Prey Extinction Dynamics
 ![](Figs/Fig4.png)
 
-### Predator-Prey Colonization adn Extinction Dynamics
+
+### Fig. 5: Predator-Prey Colonization and Extinction Dynamics
 ![](Figs/Fig5.png)
 
-### Predator Prey Predicted Occupancy Dynamics
+
+### Fig. 6: Predator Prey Predicted Occupancy Dynamics
 ![](Figs/Fig6.png)
 
-### Trophic Dynamics
+
+### Fig. 7:Trophic Dynamics
 ![](Figs/Fig7.png)
 
 
 # Supplemental
 
-### Spatial Mean Occupancy Dynamics
+### Fig S1: Spatial Mean Occupancy Dynamics
 ![](Figs/FigS1.png)
 
-#### Spatial CV Dynamics
+
+#### Fig S2: Spatial CV Dynamics
 ![](Figs/FigS2.png)
