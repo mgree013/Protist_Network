@@ -20,6 +20,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 ### Photo of Experimental Setup
 ![](Figs/Photo_networks.jpeg)
 
+### Figure of Experimental Setup
 ![](Figs/Fig1.png)
 
 # Results
