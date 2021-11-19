@@ -563,8 +563,8 @@ a1<-env_density%>%
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("a)")+
   scale_color_viridis_d()+
-  annotate("text", x = 11.9, y = 10, label = "Predator: R^2 == 0.17", parse = TRUE) +
-  annotate("text", x = 11.8, y = 8, label = "Prey: R^2 == 0.10", parse = TRUE) +
+  annotate("text", x = 13.9, y = 10, label = "Predator: R^2 == 0.17", parse = TRUE) +
+  annotate("text", x = 13.8, y = 8, label = "Prey: R^2 == 0.10", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
@@ -588,8 +588,8 @@ a2<-env_density_1%>%
   stat_smooth(data=subset(env_density_1,species == "pred"),method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("c)")+
   scale_color_viridis_d()+
-  annotate("text", x = 11.9, y = 12, label = "Predator: R^2 == 0.10", parse = TRUE) +
-  annotate("text", x = 11.8, y = 10, label = "Prey: R^2 == 0", parse = TRUE) +
+  annotate("text", x = 13.9, y = 12, label = "Predator: R^2 == 0.10", parse = TRUE) +
+  annotate("text", x = 13.8, y = 10, label = "Prey: R^2 == 0", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
@@ -613,8 +613,8 @@ a3<-env_density_2%>%
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("e)")+
   scale_color_viridis_d()+
-  annotate("text", x = 11.87, y = 12, label = "Predator: R^2 == 0.13", parse = TRUE) +
-  annotate("text", x = 11.8, y = 10, label = "Prey: R^2 == 0.11", parse = TRUE) +
+  annotate("text", x = 13.87, y = 12, label = "Predator: R^2 == 0.13", parse = TRUE) +
+  annotate("text", x = 13.8, y = 10, label = "Prey: R^2 == 0.11", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
@@ -637,8 +637,8 @@ a4<-env_density_3%>%
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("g)")+
   scale_color_viridis_d()+
-  annotate("text", x = 11.87, y = 8, label = "Predator: R^2 == 0.08", parse = TRUE) +
-  annotate("text", x = 11.8, y = 6, label = "Prey: R^2 == 0.09", parse = TRUE) +
+  annotate("text", x = 13.87, y = 8, label = "Predator: R^2 == 0.08", parse = TRUE) +
+  annotate("text", x = 13.8, y = 6, label = "Prey: R^2 == 0.09", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
