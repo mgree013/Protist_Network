@@ -111,5 +111,5 @@ envz<-env%>%
   dplyr::summarise(across(everything(), list(mean)))
 
 envzz<-as.data.frame(t(envz))
-write.csv(envzz, file="Data/summary.env.csv")
+#write.csv(envzz, file="Data/summary.env.csv")
          
