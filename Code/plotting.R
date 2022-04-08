@@ -67,8 +67,8 @@ plot_grid(a,b, ncol=1)
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   group_by(structure,replicate)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
@@ -80,14 +80,15 @@ aa<-prop_pa_rep_no_t%>%
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Network Structure",y="")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())#+ theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = c(0.2, 0.5),  legend.background = element_blank(),
+                                                                                  legend.box.background = element_rect(colour = "black"))#+ theme(legend.position = "none")
 #+theme(legend.position = c(0.85, 0.15),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
 
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 bb<-prop_pa_rep_no_t%>%
@@ -104,8 +105,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day < 75)%>%
   group_by(structure,replicate)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 a<-prop_pa_rep_no_t%>%
@@ -121,8 +122,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day < 75)%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 b<-prop_pa_rep_no_t%>%
@@ -139,8 +140,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 75 & day < 150)%>%
   group_by(structure,replicate)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 c<-prop_pa_rep_no_t%>%
@@ -156,8 +157,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 75 & day < 150)%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 d<-prop_pa_rep_no_t%>%
@@ -175,8 +176,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 150)%>%
   group_by(structure,replicate)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 e<-prop_pa_rep_no_t%>%
@@ -192,8 +193,8 @@ prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 150)%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey.oc =mean(prey.oc), pred.oc= mean(pred.oc))%>%
-  pivot_longer(cols=prey.oc:pred.oc,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 f<-prop_pa_rep_no_t%>%
@@ -503,8 +504,8 @@ env_density2<-Data%>%
 
 env_density<-Data%>%
   group_by(structure,replicate,bottle)%>%
-  summarise(prey =mean(ln.prey), pred= mean(ln.pred))%>%
-  pivot_longer(cols=prey:pred,names_to = "species", values_to="density")%>%
+  summarise(prey =mean(ln.prey), predator= mean(ln.pred))%>%
+  pivot_longer(cols=prey:predator,names_to = "species", values_to="density")%>%
   left_join(env, by=c("bottle", "structure","replicate"))%>%
   mutate(bac.density_log=log(bac.density))
 
@@ -557,17 +558,19 @@ env_density_3<-Data%>%
   mutate(bac.density_log=log(bac.density))
 
 #8A) All Phases
+
 a1<-env_density%>%
   ggplot(aes(x=(bac.density_log),y=density, colour=species))+ 
   geom_point()+
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("a)")+
   scale_color_viridis_d()+
-  annotate("text", x = 13.9, y = 10, label = "Predator: R^2 == 0.17", parse = TRUE) +
-  annotate("text", x = 13.8, y = 8, label = "Prey: R^2 == 0.10", parse = TRUE) +
+  annotate("text", x = 11.58, y = 10, label = "Predator: R^2 == 0.17", parse = TRUE) +
+  annotate("text", x = 11.5, y = 8, label = "Prey: R^2 == 0.10", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = c(0.8, 0.9),  legend.background = element_blank(),
+                                                                                  legend.box.background = element_rect(colour = "black"))
 
 b1<-env_density2%>%
   ggplot(aes(x=(pred),y=prey))+ 
@@ -588,8 +591,8 @@ a2<-env_density_1%>%
   stat_smooth(data=subset(env_density_1,species == "pred"),method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("c)")+
   scale_color_viridis_d()+
-  annotate("text", x = 13.9, y = 12, label = "Predator: R^2 == 0.10", parse = TRUE) +
-  annotate("text", x = 13.8, y = 10, label = "Prey: R^2 == 0", parse = TRUE) +
+  annotate("text", x = 11.58, y = 12, label = "Predator: R^2 == 0.10", parse = TRUE) +
+  annotate("text", x = 11.5, y = 10, label = "Prey: R^2 == 0", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
@@ -613,8 +616,8 @@ a3<-env_density_2%>%
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("e)")+
   scale_color_viridis_d()+
-  annotate("text", x = 13.87, y = 12, label = "Predator: R^2 == 0.13", parse = TRUE) +
-  annotate("text", x = 13.8, y = 10, label = "Prey: R^2 == 0.11", parse = TRUE) +
+  annotate("text", x = 11.56, y = 12, label = "Predator: R^2 == 0.13", parse = TRUE) +
+  annotate("text", x = 11.5, y = 10, label = "Prey: R^2 == 0.11", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
@@ -637,8 +640,8 @@ a4<-env_density_3%>%
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
   ggtitle("g)")+
   scale_color_viridis_d()+
-  annotate("text", x = 13.87, y = 8, label = "Predator: R^2 == 0.08", parse = TRUE) +
-  annotate("text", x = 13.8, y = 6, label = "Prey: R^2 == 0.09", parse = TRUE) +
+  annotate("text", x = 11.56, y = 8, label = "Predator: R^2 == 0.08", parse = TRUE) +
+  annotate("text", x = 11.5, y = 6.5, label = "Prey: R^2 == 0.09", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
