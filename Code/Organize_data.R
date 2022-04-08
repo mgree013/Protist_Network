@@ -1,3 +1,12 @@
+#paper title: Long transients and network structure effect persistence and spatial predator-prey dynamics in experimental microcosms
+#Author: Matthew Douglas Green; Clara Woodie; Megan Whitesell; Kurt E. Anderson
+#Date: September 21, 2021
+
+#Data: https://datadryad.org/stash/dataset/doi:10.5061/dryad.3j9kd51kx
+
+#Organize Data
+########################################################################################################################
+
 library(tidyverse)
 library(ggplot2)
 library(viridis)
@@ -7,6 +16,7 @@ library(AICcmodavg)
 library(betareg)
 library(DataCombine)
 library(performance)
+########################################################################################################################
 
 meg_data = read.csv("Data/megan_unconnected_pa.csv")
 summary(meg_data)
