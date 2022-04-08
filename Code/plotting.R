@@ -78,7 +78,7 @@ aa<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("a)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Proportion of Species Occupancy")+
+  labs(x="Network Structure",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = c(0.2, 0.5),  legend.background = element_blank(),
                                                                                   legend.box.background = element_rect(colour = "black"))#+ theme(legend.position = "none")
@@ -96,7 +96,7 @@ bb<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("b)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Proportion of Species Occupancy")+
+  labs(x="Connectivity",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
@@ -114,7 +114,7 @@ a<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("c)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Proportion of Species Occupancy")+
+  labs(x="Network Structure",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
@@ -131,7 +131,7 @@ b<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("d)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Proportion of Species Occupancy")+
+  labs(x="Connectivity",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
@@ -149,7 +149,7 @@ c<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("e)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Proportion of Species Occupancy")+
+  labs(x="Network Structure",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
@@ -166,7 +166,7 @@ d<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("f)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Proportion of Species Occupancy")+
+  labs(x="Connectivity",y="Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
@@ -185,7 +185,7 @@ e<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("g)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Proportion of Species Occupancy")+
+  labs(x="Network Structure",y="Occupancy Proportion")+
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
@@ -202,7 +202,7 @@ f<-prop_pa_rep_no_t%>%
   geom_boxplot()+
   ggtitle("h)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Proportion of Species Occupancy")+
+  labs(x="Connectivity",y="Occupancy Proportion")+
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
