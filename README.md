@@ -33,6 +33,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 ![](New figs/Fig3.png)
 
 
+
 ### Fig 4: Predator-Prey Extinction Dynamics
 ![](Figs/Fig4.png)
 
