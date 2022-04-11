@@ -30,14 +30,12 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig 3: Predator-Prey Occupancy Dynamics
-![](New figs/Fig3.png)
-
+![](Newfigs/Fig3.png)
 
 
 ### Fig 4: Predator-Prey Extinction Dynamics
 ![](Figs/Fig4.png)
 
-![](Figs/Old/Rplot02.png)
 
 ### Fig. 5: Predator-Prey Colonization and Extinction Dynamics
 ![](Figs/Fig5.jpg)
@@ -48,7 +46,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig. 7:Trophic Dynamics
-![](New figs/fig7.png)
+![](Newfigs/fig7.png)
 
 
 # Supplemental
