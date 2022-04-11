@@ -46,7 +46,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig. 7:Trophic Dynamics
-![](Figs/Fig7.png)
+![](New figs/fig7.png)
 
 
 # Supplemental
