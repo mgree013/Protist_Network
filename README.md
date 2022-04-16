@@ -2,7 +2,7 @@
 
 Title: Long transients and network structure effect persistence and spatial predator-prey dynamics in experimental microcosms
 
-Status of MS: Submitted Jounral of Animal Ecology
+Status of MS: Submitted to Jounral of Animal Ecology
 
 Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderson
 
