@@ -118,8 +118,16 @@ str(env)
 envz<-env%>%
   dplyr::select(-c(bottle, bottle.number,replicate,position))%>%
   dplyr::group_by(structure)%>%
-  dplyr::summarise(across(everything(), list(mean)))
+  #summarise(mean=mean())
+  dplyr::summarise(across(     .cols = is.numeric, 
+                   .fns = list(Mean = mean, SD = sd), na.rm = TRUE, 
+                   .names = "{col}_{fn}"))
+
+envz<-env%>%
+  dplyr::select(-c(bottle, bottle.number,replicate,position))%>%
+  dplyr::group_by(structure)%>%
+  dplyr::summarise(across(everything(), list(sd)), na.rm = TRUE, .names = "{col}_{fn}")
 
 envzz<-as.data.frame(t(envz))
-#write.csv(envzz, file="Data/summary.env.csv")
+#write.csv(envzz, file="Data/summary.all.env.csv")
          
