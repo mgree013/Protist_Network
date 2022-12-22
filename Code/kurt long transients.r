@@ -7,10 +7,11 @@ library(ROI)
 library(ROI.plugin.glpk)
 library(e1071)
 
-setwd("G:/My Drive/Anderson Lab Protist Folder")
+R.Version()
 
-data <- read.csv("net.data.csv")
-adj_matrix <- read.csv("Adj_matrix_big.csv", header=FALSE)
+
+data <- all_pa_datas
+adj_matrix <- read.csv("Data/Adj_matrix_big.csv", header=FALSE)
 
 spaMM.options(separation_max = 100)
 
@@ -62,6 +63,10 @@ AIC.HLfit(model3_all_pred)
 AIC.HLfit(model4_all_pred)
 AIC.HLfit(model5_all_pred)
 
+performance::r2(model1_all_pred)
+DescTools::PseudoR2(model1_all_pred)
+spaMM::extractors(model1_all_pred)
+                    
 extractAIC.HLfit(model1_all_pred)
 anova.HLfit(model2_all_pred,model1_all_pred) #Way of implementing LRT if we go that route
 
