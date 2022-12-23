@@ -63,11 +63,12 @@ AIC.HLfit(model3_all_pred)
 AIC.HLfit(model4_all_pred)
 AIC.HLfit(model5_all_pred)
 
-performance::r2(model1_all_pred)
-DescTools::PseudoR2(model1_all_pred)
-spaMM::extractors(model1_all_pred)
-                    
+
+spaMM::pseudoR2(model2_all_pred)
+spaMM::extractors(model2_all_pred)
+
 extractAIC.HLfit(model1_all_pred)
+fixef(model1_all_pred)
 anova.HLfit(model2_all_pred,model1_all_pred) #Way of implementing LRT if we go that route
 
 #####
