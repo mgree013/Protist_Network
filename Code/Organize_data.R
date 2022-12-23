@@ -17,6 +17,7 @@ library(betareg)
 library(DataCombine)
 library(performance)
 library(DescTools)
+library(spaMM)
 ########################################################################################################################
 
 meg_data = read.csv("Data/megan_unconnected_pa.csv")

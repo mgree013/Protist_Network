@@ -40,8 +40,8 @@ env_density<-Data %>%
                                    rep == "lB" ~ as.numeric(bottle.number) + 75,
                                    rep == "lC" ~ as.numeric(bottle.number) + 90,
                                    rep == "lD" ~ as.numeric(bottle.number) + 105)) %>% 
-  group_by(structure, rep, bottle.number)%>%summarise(prey =mean(ln.prey), pred= mean(ln.pred))%>%
-  pivot_longer(cols=prey:pred,names_to = "species", values_to="density")%>%
+  group_by(structure, rep, bottle.number)%>%#%>%summarise(prey =mean(ln.prey), pred= mean(ln.pred))%>%
+  pivot_longer(cols=ln.prey:ln.pred,names_to = "species", values_to="density")%>%
   left_join(bac_density, by=c("bottle.number", "structure","rep"))
 
 #Data Subset: Phase 1
@@ -95,20 +95,24 @@ env_density_3<-Data%>%
 ##################################################
 #8A) All Phases
 
-env_density_pred<-env_density%>%filter(species=="pred")
+env_density_pred<-env_density%>%filter(species=="ln.pred")
 
-model1_last_period_pred <- HLCor(density ~ structure + bac.density_log  + (1|replicate) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model1_last_period_pred <- HLCor(density ~ structure + bac.density_log  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
 summary(model1_last_period_pred, corr = FALSE)
 
-model2_last_period_pred <- HLCor(density ~ bac.density_log  + (1|replicate) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model2_last_period_pred <- HLCor(density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
 summary(model2_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(density ~ structure + (replicate) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model3_last_period_pred <- HLCor(density ~ structure + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
 summary(model3_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(density ~ 1 + (1|replicate) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
-summary(model3_last_period_pred, corr = FALSE)
+model4_last_period_pred <- HLCor(density ~ 1 + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+summary(model4_last_period_pred, corr = FALSE)
 
+AIC.HLfit(model1_last_period_pred)
+AIC.HLfit(model2_last_period_pred)
+AIC.HLfit(model3_last_period_pred)
+AIC.HLfit(model4_last_period_pred)
 
 #Pred vs bacteria
 env_density_pred<-env_density%>%filter(species=="pred")
