@@ -1,0 +1,25 @@
+"","time","species","predictor","df","aic","r2","delta_aic","lklhd","weight"
+"1","Entire Exp","predator","density ~ ln.pred + bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,36606.4579742521,0.0806410594616646,0,1,0.943018572486838
+"2","Entire Exp","predator","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,36612.070695444,0.0797954022548347,5.61272119182104,0.0604245018874823,0.0569814275131618
+"3","Entire Exp","prey","density ~ ln.pred + bac.density_log  + (1|rep) + adjacency(1|bottle.number)",3,40899.0342500752,0.287922101202465,0,1,0.619759581063252
+"4","Entire Exp","prey","density ~ ln.pred + (1|rep) + adjacency(1|bottle.number)",2,40900.0113058677,0.28766602912747,0.977055792565807,0.613528907910406,0.380240418936748
+"5","Entire Exp","prey","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,43576.0014323457,0.0156558115633697,2676.96718227053,0,0
+"6","Entire Exp","prey","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,43577.4141387718,0.0157256278091251,2678.37988869659,0,0
+"7","Phase 1","predator","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,14664.2442673986,0.018953673274131,0,1,0.988740175179424
+"8","Phase 1","predator","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,14673.1946484337,0.0156928627360428,8.95038103501975,0.0113880522944592,0.011259824820576
+"9","Phase 1","prey","density ~ ln.pred + (1|rep) + adjacency(1|bottle.number)",2,13024.00488137,0.119738157296079,0,1,0.70262187426188
+"10","Phase 1","prey","density ~ ln.pred + bac.density_log  + (1|rep) + adjacency(1|bottle.number)",3,13025.724510156,0.119812942022627,1.71962878597515,0.42324063145703,0.29737812573812
+"11","Phase 1","prey","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,13234.4852639767,0.0611953599760139,210.480382606738,1.97135864855981e-46,1.38511970849346e-46
+"12","Phase 1","prey","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,13236.4978323708,0.06119178443384,212.492951000844,7.20679168003272e-47,5.06364947763951e-47
+"13","Phase 2","predator","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,9442.5055675226,0.374942551292544,0,1,0.5
+"14","Phase 2","predator","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",2,9442.5055675226,0.374942551292544,0,1,0.5
+"15","Phase 2","prey","density ~ ln.pred + (1|rep) + adjacency(1|bottle.number)",2,10925.1644761835,0.154568938641089,0,1,0.723503559802406
+"16","Phase 2","prey","density ~ ln.pred + bac.density_log  + (1|rep) + adjacency(1|bottle.number)",3,10927.0882912234,0.15459512080952,1.9238150398869,0.382163206319409,0.276496440197594
+"17","Phase 2","prey","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,11040.7313927672,0.113183522363962,115.566916583668,8.03457517524351e-26,5.81304374078872e-26
+"18","Phase 2","prey","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,11042.3772211324,0.113311190100906,117.212744948962,3.52838388569944e-26,2.55279830165299e-26
+"19","Phase 3","predator","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,8240.41022112917,0.303757470181012,0,1,0.582433483291051
+"20","Phase 3","predator","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,8241.07576339734,0.302983763983287,0.665542268170611,0.716934257195313,0.417566516708949
+"21","Phase 2","prey","density ~ ln.pred + (1|rep) + adjacency(1|bottle.number)",2,10366.8691928366,0.298021300389828,0,1,0.716819812389069
+"22","Phase 2","prey","density ~ ln.pred + bac.density_log  + (1|rep) + adjacency(1|bottle.number)",3,10368.7266750386,0.298062984343239,1.85748220191817,0.395050726440062,0.283180187610931
+"23","Phase 2","prey","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,10876.2864726612,0.131303689253189,509.417279824573,2.40681767966842e-111,1.72525459759461e-111
+"24","Phase 2","prey","density ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number)",2,10877.2610955283,0.131674752202861,510.391902691656,1.47844960796181e-111,1.05978197060587e-111
