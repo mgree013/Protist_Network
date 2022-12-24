@@ -65,6 +65,25 @@ model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), f
 summary(model5_last_period_pred, corr = FALSE)
 
 AIC.HLfit(model1_last_period_pred)
+
+extractAIC(model1_last_period_pred)
+pseudoR2(model1_last_period_pred, nullform = ~1)
+
+extractAIC(model2_last_period_pred)
+pseudoR2(model2_last_period_pred, nullform = ~1)
+
+extractAIC(model3_last_period_pred)
+pseudoR2(model3_last_period_pred, nullform = ~1)
+
+extractAIC(model4_last_period_pred)
+pseudoR2(model4_last_period_pred, nullform = ~1)
+
+extractAIC(model5_last_period_pred)
+pseudoR2(model5_last_period_pred)
+
+
+
+get_any_IC(model1_last_period_pred)
 AIC.HLfit(model2_last_period_pred)
 AIC.HLfit(model3_last_period_pred)
 AIC.HLfit(model4_last_period_pred)
