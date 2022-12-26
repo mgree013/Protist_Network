@@ -1,0 +1,51 @@
+"","time","species","col_ext","predictor","df","aic","r2","delta_aic","lklhd","weight"
+"1","Entire Exp","prey","colonization","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,423.636397004072,0.134676531398536,0,1,0.473610222166333
+"2","Entire Exp","prey","colonization","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,425.21251391351,0.137727772404802,1.5761169094385,0.454726811462936,0.21536326620195
+"3","Entire Exp","prey","colonization","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,425.537177802005,0.135391708228184,1.90078079793329,0.386590069626611,0.183093008763158
+"4","Entire Exp","prey","colonization","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,426.895010449504,0.14000621035233,3.25861344543227,0.196065454745919,0.092858603581358
+"5","Entire Exp","prey","colonization","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,428.84219482942,0.14038463627846,5.20579782534833,0.0740585773819786,0.0350748992872015
+"6","Entire Exp","predator","colonization","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,511.466760081122,0.321243082345111,0,1,0.669008146657806
+"7","Entire Exp","predator","colonization","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,513.62282714239,0.320359744741242,2.15606706126778,0.340263986881849,0.227639379238222
+"8","Entire Exp","predator","colonization","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,515.343300317122,0.321941049645443,3.87654023600021,0.143952755794216,0.0963055663601722
+"9","Entire Exp","predator","colonization","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,521.585988691206,0.249111903474453,10.1192286100838,0.00634800743526476,0.00424686868923645
+"10","Entire Exp","predator","colonization","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,522.419085825677,0.256378295255707,10.9523257445553,0.00418535868143311,0.00280003905456372
+"11","Entire Exp","prey","extinction","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,473.125917735101,0.130663768365093,0,1,0.527384102170513
+"12","Entire Exp","prey","extinction","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,475.00358103658,0.131549581128192,1.87766330147906,0.391084491816252,0.206251743589326
+"13","Entire Exp","prey","extinction","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,475.343856564297,0.129083482771994,2.21793882919633,0.329898774802975,0.173983369156619
+"14","Entire Exp","prey","extinction","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,477.23930452077,0.129841953155707,4.11338678566949,0.12787610764214,0.0674398262179097
+"15","Entire Exp","prey","extinction","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,479.22875322165,0.129918460607392,6.10283548654866,0.0472918291677452,0.0249409588656326
+"16","Entire Exp","predator","extinction","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,482.361867153827,0.327281763533111,0,1,0.351886266764908
+"17","Entire Exp","predator","extinction","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,482.449270858453,0.315477438393113,0.0874037046262401,0.957239313618941,0.336839368469973
+"18","Entire Exp","predator","extinction","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,484.332935698779,0.316140733834619,1.971068544952,0.373239761925327,0.131337946432126
+"19","Entire Exp","predator","extinction","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,484.359283917025,0.32729624496479,1.99741676319763,0.368354908021842,0.129619033428337
+"20","Entire Exp","predator","extinction","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,486.251781905563,0.327898616830255,3.88991475173657,0.142993318174227,0.0503173849046554
+"21","Phase 1","predator","colonization","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,361.513345340846,0.0569945836186988,0,1,0.574153360770634
+"22","Phase 1","predator","colonization","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,363.423365055763,0.0577014177158578,1.91001971491778,0.384808351301779,0.220939008152523
+"23","Phase 1","predator","colonization","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,365.266761612034,0.0106806692278951,3.75341627118792,0.153093239364201,0.0878989978922189
+"24","Phase 1","predator","colonization","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,365.367228014051,0.0581421300801153,3.85388267320502,0.145592837619613,0.0835926170234342
+"25","Phase 1","predator","colonization","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,367.201067798537,0.0112221223355803,5.68772245769094,0.0582005060744381,0.0334160161611903
+"26","Phase 1","prey","extinction","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,394.186773824102,0.0505700422406971,0,1,0.408237013995525
+"27","Phase 1","prey","extinction","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,395.212061511989,0.058250648998434,1.02528768788659,0.598910059070185,0.244497254166696
+"28","Phase 1","prey","extinction","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,395.578908357474,0.0553672624166101,1.39213453337175,0.498542086589355,0.203523332780337
+"29","Phase 1","prey","extinction","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,397.020738582958,0.0597509380506144,2.8339647588557,0.242444519722848,0.0989748267912345
+"30","Phase 1","prey","extinction","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,398.607501580921,0.0629832502565788,4.42072775681913,0.109660738079714,0.044767572266208
+"31","Phase 2","predator","colonization","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,406.968630593401,0.684875213738851,0,1,0.575522001703832
+"32","Phase 2","predator","colonization","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,408.550311036548,0.685971825077979,1.58168044314709,0.453463625250384,0.260978293303978
+"33","Phase 2","predator","colonization","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,410.362638080105,0.686462562868688,3.3940074867038,0.183231711621384,0.105453881447958
+"34","Phase 2","predator","colonization","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,412.56966080498,0.664268871887306,5.6010302115792,0.0607787470759966,0.0349795061782285
+"35","Phase 2","predator","colonization","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,413.402438647944,0.667518647983522,6.43380805454285,0.0400789497147203,0.0230663173660031
+"36","Phase 2","prey","extinction","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,284.731220985014,0.321597928578104,0,1,0.53519691131567
+"37","Phase 2","prey","extinction","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,286.580526055704,0.322449325146411,1.84930507069055,0.396669223667336,0.212296143320743
+"38","Phase 2","prey","extinction","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,287.108284482548,0.319462903853682,2.37706349753444,0.304668265387526,0.163057514611307
+"39","Phase 2","prey","extinction","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,288.946881770611,0.32037762632868,4.21566078559727,0.121501290750309,0.0650271155304324
+"40","Phase 2","prey","extinction","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,290.905495915204,0.320611975525667,6.17427493019011,0.0456323919392777,0.0244223152218475
+"41","Phase 3","prey","colonization","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,386.660304051981,0.12276848512278,0,1,0.529240844194014
+"42","Phase 3","prey","colonization","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,388.666368335199,0.122724152499647,2.00606428321839,0.366765668022977,0.194107371765862
+"43","Phase 3","prey","colonization","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,388.78797511454,0.121834679464239,2.1276710625591,0.345129513385226,0.182656635020266
+"44","Phase 3","prey","colonization","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,390.757019739244,0.122061183057293,4.09671568726321,0.12894648010288,0.0682437439854949
+"45","Phase 3","prey","colonization","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,392.706212892414,0.122432815237314,6.04590884043341,0.0486572518294204,0.0257514050343632
+"46","Phase 3","predator","extinction","density ~ structure + (1|rep) + adjacency(1|bottle.number)",2,227.384924062468,0.104400539050735,0,1,0.332934227895977
+"47","Phase 3","predator","extinction","density ~ 1 + (1|rep) + adjacency(1|bottle.number)",1,227.936896375263,0.0851503646902632,0.551972312794931,0.758823435538565,0.252638294620405
+"48","Phase 3","predator","extinction","density ~ connectivity + (1|rep) + adjacency(1|bottle.number)",2,228.502429607246,0.096021272089306,1.11750554477771,0.571921936029505,0.190412388188756
+"49","Phase 3","predator","extinction","density ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number)",3,228.830031109994,0.108532327346926,1.44510704752594,0.48551090808786,0.161643199319306
+"50","Phase 3","predator","extinction","density ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number)",4,230.734584590326,0.109241107821532,3.34966052785768,0.187339975134797,0.0623718899755552

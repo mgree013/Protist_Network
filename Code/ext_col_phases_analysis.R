@@ -47,7 +47,7 @@ dog[[2]]<-glm(y~structure, family=binomial(link = "logit"), data=Ext_col_data_al
 dog[[3]]<-glm(y~connectivity, family=binomial(link = "logit"), data=Ext_col_data_all)
 dog[[4]]<-glm(y~1, family=binomial(link = "logit"), data=Ext_col_data_all)
 
-summary(dog[[4]])
+summary(dog[[1]])
 Modnames <- paste("mod", 1:length(dog), sep = " ")
 reported.table2<-aictab(cand.set = dog, modnames = Modnames, sort = FALSE)
 reported.table2
