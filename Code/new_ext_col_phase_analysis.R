@@ -408,7 +408,7 @@ r2<-c(mod1_r2,mod2_r2,mod3_r2,mod4_r2,mod5_r2)
 r22<-as.data.frame(r2, ncol=1)
 
 merged<-as.data.frame(cbind(time2,species2,col_ext2,pred.df,df2,aic2,r22))
-merged_one_pred_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate(lklhd=exp(-.5*delta_aic))%>%mutate(weight=lklhd/(sum(lklhd)))
+merged_one_prey_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate(lklhd=exp(-.5*delta_aic))%>%mutate(weight=lklhd/(sum(lklhd)))
 
 
 ####################################################################################
@@ -458,7 +458,7 @@ pred.df<-as.data.frame(predictor,ncol=1)
 time<-c(rep("Phase 1",5))
 time2<-as.data.frame(time, ncol=1)
 
-species<-c(rep("prey",5))
+species<-c(rep("predator",5))
 species2<-as.data.frame(species, ncol=1)
 
 col_ext<-c(rep("extinction",5))
@@ -474,25 +474,25 @@ r2<-c(mod1_r2,mod2_r2,mod3_r2,mod4_r2,mod5_r2)
 r22<-as.data.frame(r2, ncol=1)
 
 merged<-as.data.frame(cbind(time2,species2,col_ext2,pred.df,df2,aic2,r22))
-merged_one_prey_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate(lklhd=exp(-.5*delta_aic))%>%mutate(weight=lklhd/(sum(lklhd)))
+merged_one_pred_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate(lklhd=exp(-.5*delta_aic))%>%mutate(weight=lklhd/(sum(lklhd)))
 ####################################################################################
 #Prey-col
 
-y <- cbind(Ext_col_data_1$colonization_sum_prey, Ext_col_data_1$non_colonization_sum_prey)
+#y <- cbind(Ext_col_data_1$colonization_sum_prey, Ext_col_data_1$non_colonization_sum_prey)
 
-model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
+#model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_last_period_pred, corr = FALSE)
 
-model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
+#model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
+#model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_last_period_pred, corr = FALSE)
 
-model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
+#model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
-model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
+#model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_1, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_last_period_pred)
@@ -717,22 +717,22 @@ merged_two_prey_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mu
 ####################################################################################
 #Pred-Ext
 
-y <- cbind(Ext_col_data_2$extinction_sum_pred, Ext_col_data_2$non_extinction_sum_pred)
+#y <- cbind(Ext_col_data_2$extinction_sum_pred, Ext_col_data_2$non_extinction_sum_pred)
 
-model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
-summary(model1_last_period_pred, corr = FALSE)
+#model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#summary(model1_last_period_pred, corr = FALSE)
 
-model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
-summary(model2_last_period_pred, corr = FALSE)
+#model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#summary(model2_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
-summary(model3_last_period_pred, corr = FALSE)
+#model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#summary(model3_last_period_pred, corr = FALSE)
 
-model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
-summary(model4_last_period_pred, corr = FALSE)
+#model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#summary(model4_last_period_pred, corr = FALSE)
 
-model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
-summary(model5_last_period_pred, corr = FALSE)
+#model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_last_period_pred)
 mod1_r2<-pseudoR2(model1_last_period_pred, nullform = ~1)
@@ -782,21 +782,21 @@ merged_two_pred_ext<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mu
 ####################################################################################
 #Prey-col
 
-y <- cbind(Ext_col_data_2$colonization_sum_prey, Ext_col_data_2$non_colonization_sum_prey)
+#y <- cbind(Ext_col_data_2$colonization_sum_prey, Ext_col_data_2$non_colonization_sum_prey)
 
-model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_last_period_pred, corr = FALSE)
 
-model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_last_period_pred, corr = FALSE)
 
-model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
-model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
+#model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_2, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_last_period_pred)
@@ -1152,21 +1152,21 @@ merged_three_prey_col<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%
 ####################################################################################
 #Pred-col
 
-y <- cbind(Ext_col_data_3$colonization_sum_pred, Ext_col_data_3$non_colonization_sum_pred)
+#y <- cbind(Ext_col_data_3$colonization_sum_pred, Ext_col_data_3$non_colonization_sum_pred)
 
-model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
+#model1_last_period_pred <- HLCor(y ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_last_period_pred, corr = FALSE)
 
-model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
+#model2_last_period_pred <- HLCor(y ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_last_period_pred, corr = FALSE)
 
-model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
+#model3_last_period_pred <- HLCor(y ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_last_period_pred, corr = FALSE)
 
-model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
+#model4_last_period_pred <- HLCor(y ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
-model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
+#model5_last_period_pred <- HLCor(y ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = Ext_col_data_3, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_last_period_pred)
@@ -1214,7 +1214,6 @@ r22<-as.data.frame(r2, ncol=1)
 merged<-as.data.frame(cbind(time2,species2,col_ext2,pred.df,df2,aic2,r22))
 merged_three_pred_col<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate(lklhd=exp(-.5*delta_aic))%>%mutate(weight=lklhd/(sum(lklhd)))
 
-
 ####################################################################################################
 ent<-merged_all_prey_col%>%full_join(merged_all_pred_col)%>%full_join(merged_all_prey_ext)%>%full_join(merged_all_pred_ext)%>%
   full_join(merged_one_pred_col)%>%full_join(merged_one_prey_ext)%>%full_join(merged_one_pred_ext)%>%
@@ -1222,5 +1221,5 @@ ent<-merged_all_prey_col%>%full_join(merged_all_pred_col)%>%full_join(merged_all
   full_join(merged_three_prey_col)%>%full_join(merged_three_prey_ext)%>%full_join(merged_three_pred_ext)
   
   
-write.csv(ent, "new_col_ext_model.csv")
+write.csv(ent, "new_col_ext_model_3.csv")
 
