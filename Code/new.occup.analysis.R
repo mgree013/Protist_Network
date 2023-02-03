@@ -20,19 +20,19 @@ all_pred <- data %>%
   group_by(structure, rep, connectivity)
 
 ##### Models
-model1_all_pred <- HLCor(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_all_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_all_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_all_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_all_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_all_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -79,19 +79,19 @@ merged_all_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate
 
 
 #All Prey
-model1_all_pred <- HLCor(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_all_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_all_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_all_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_all_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = all_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_all_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -157,19 +157,19 @@ early_period_pred <- data %>%
 
 
 ##### Models
-model1_all_pred <- HLCor(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_early_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_early_period_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_early_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_early_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_early_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -216,20 +216,20 @@ merged_one_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate
 
 #####
 #Prey
-model1_all_pred <- HLCor(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix),
+model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix),
                          control.HLfit=list(max.iter.mean=300))
 #summary(model1_early_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_early_period_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_early_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_early_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_early_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -294,19 +294,19 @@ mid_period_pred <- data %>%
 
 
 ##### Models
-model1_all_pred <- HLCor(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_mid_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_mid_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_mid_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_mid_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_mid_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -354,19 +354,19 @@ merged_two_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate
 
 #######
 #Prey
-model1_all_pred <- HLCor(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_mid_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_mid_period_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_mid_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_mid_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_mid_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -432,19 +432,19 @@ last_period_pred <- data %>%
 
 
 ##### Models
-model1_all_pred <- HLCor(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(pred.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_last_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_last_period_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_last_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(pred.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
@@ -491,19 +491,19 @@ merged_three_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%muta
 
 ######
 #Prey
-model1_all_pred <- HLCor(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_last_period_pred, corr = FALSE)
 
-model2_all_pred <- HLCor(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model2_all_pred <- fitme(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_last_period_pred, corr = FALSE)
 
-model3_all_pred <- HLCor(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(prey.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_last_period_pred, corr = FALSE)
 
-model4_all_pred <- HLCor(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model4_all_pred <- fitme(prey.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
-model5_all_pred <- HLCor(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
+model5_all_pred <- fitme(prey.oc ~ 1 + (1|rep) + adjacency(1|bottle.number), family = binomial, data = last_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model5_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_all_pred)
