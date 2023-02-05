@@ -216,8 +216,7 @@ merged_one_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%mutate
 
 #####
 #Prey
-model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix),
-                         control.HLfit=list(max.iter.mean=300))
+model1_all_pred <- fitme(prey.oc ~ connectivity + structure + connectivity * structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model1_early_period_pred, corr = FALSE)
 
 model2_all_pred <- fitme(prey.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = early_period_pred, adjMatrix = as.matrix(adj_matrix))
@@ -300,7 +299,7 @@ model1_all_pred <- fitme(pred.oc ~ connectivity + structure + connectivity * str
 model2_all_pred <- fitme(pred.oc ~ connectivity + structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_mid_period_pred, corr = FALSE)
 
-model2_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
+model3_all_pred <- fitme(pred.oc ~ connectivity + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
 #summary(model3_mid_period_pred, corr = FALSE)
 
 model4_all_pred <- fitme(pred.oc ~ structure + (1|rep) + adjacency(1|bottle.number), family = binomial, data = mid_period_pred, adjMatrix = as.matrix(adj_matrix))
