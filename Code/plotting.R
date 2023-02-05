@@ -66,72 +66,54 @@ plot_grid(a,b, ncol=1)
 #2A) Entire Experiment
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
-  group_by(structure,replicate)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
-
+  group_by(structure,replicate, connectivity,bottle)%>%
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))#%>%
+  #pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
-
-aa<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(structure),y=occupancy, fill=species))+ 
+bb.prey<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("a)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = c(0.2, 0.5),  legend.background = element_blank(),
-                                                                                  legend.box.background = element_rect(colour = "black"))#+ theme(legend.position = "none")
-#+theme(legend.position = c(0.85, 0.15),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+        panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
-prop_pa_rep_no_t<-all_pa_datas%>%
-  mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
-  group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
-prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
-
-bb<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(connectivity),y=occupancy, fill=species))+ 
+bb.pred<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("b)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
 #2B) Phase 1
-prop_pa_rep_no_t<-all_pa_datas%>%
-  mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
-  filter(day < 75)%>%
-  group_by(structure,replicate)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
-prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
-
-a<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(structure),y=occupancy, fill=species))+ 
-  geom_boxplot()+
-  ggtitle("c)") +
-  scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Occupancy Proportion")+
-  theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day < 75)%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))#%>%
+  #pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
-b<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(connectivity),y=occupancy, fill=species))+ 
+b.prey<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
+  geom_boxplot()+
+  ggtitle("c)") +
+  scale_fill_viridis(discrete = TRUE)+
+  labs(x="Connectivity",y="Prey Occupancy Proportion")+
+  theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
+
+b.pred<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("d)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
@@ -139,75 +121,60 @@ b<-prop_pa_rep_no_t%>%
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 75 & day < 150)%>%
-  group_by(structure,replicate)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
+  group_by(structure,replicate, connectivity,bottle)%>%
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))#%>%
+  #pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
-c<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(structure),y=occupancy, fill=species))+ 
+d.prey<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("e)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
-prop_pa_rep_no_t<-all_pa_datas%>%
-  mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
-  filter(day  > 75 & day < 150)%>%
-  group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
-prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
-
-d<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(connectivity),y=occupancy, fill=species))+ 
+d.pred<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("f)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
-prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
 #2D) Phase 3
-prop_pa_rep_no_t<-all_pa_datas%>%
-  mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
-  filter(day  > 150)%>%
-  group_by(structure,replicate)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
-prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
-
-e<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(structure),y=occupancy, fill=species))+ 
-  geom_boxplot()+
-  ggtitle("g)") +
-  scale_fill_viridis(discrete = TRUE)+
-  labs(x="Network Structure",y="Occupancy Proportion")+
-  theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
 
 prop_pa_rep_no_t<-all_pa_datas%>%
   mutate_if(is.character, str_replace_all, pattern = "control", replacement = "isolated")%>%
   filter(day  > 150)%>%
   group_by(structure,replicate, connectivity,bottle)%>%
-  summarise(prey =mean(prey.oc), predator= mean(pred.oc))%>%
-  pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
+  summarise(prey =mean(prey.oc), predator= mean(pred.oc))#%>%
+  #pivot_longer(cols=prey:predator,names_to = "species", values_to="occupancy")
 prop_pa_rep_no_t$structure <- factor(prop_pa_rep_no_t$structure, levels=c("isolated", "dendritic", "lattice"))
 
-f<-prop_pa_rep_no_t%>%
-  ggplot(aes(x=as.factor(connectivity),y=occupancy, fill=species))+ 
+f.prey<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
-  ggtitle("h)") +
+  ggtitle("g)") +
   scale_fill_viridis(discrete = TRUE)+
-  labs(x="Connectivity",y="Occupancy Proportion")+
+  labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
+f.pred<-prop_pa_rep_no_t%>%
+  ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
+  geom_boxplot()+
+  ggtitle("h)") +
+  scale_fill_viridis(discrete = TRUE)+
+  labs(x="Connectivity",y="Predator Occupancy Proportion")+
+  theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank()) +theme(legend.position = c(0.15, 0.9),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+
 #plot_grid(aa,bb,a,b,c,d,e,f,ncol=2)
-plot_grid(bb,b,d,f,ncol=2)
+#plot_grid(bb,b,d,f,ncol=2)
+plot_grid(bb.prey,bb.pred,b.prey,b.pred,d.prey,d.pred,f.prey,f.pred,ncol=2)
 
 ################################################################################################################################################################
 #Figure 5: Colonization/Extinction
@@ -733,7 +700,7 @@ dc<-Ext_col_data_network%>%
   ggplot(aes(x=prey.occupancy,y=pred.prey.oc))+ 
   geom_point()+
   ggtitle("a)") +
-  stat_smooth(linetype= "dashed",method = NULL,aes(y = predict(y1, Ext_col_data_network))) +
+  stat_smooth(method = NULL,aes(y = predict(y1, Ext_col_data_network)),colour="black") +
   scale_color_viridis_d()+
   annotate("text", x = .78, y = 1, label = "R^2 == 0.42", parse = TRUE) +
   labs(x="Prey Observed Occupancy",y="Prey Predicted Occupancy")+
@@ -748,7 +715,7 @@ da<-Ext_col_data_network%>%
   ggplot(aes(x=pred.occupancy,y=pred.pred.oc))+ 
   geom_point()+
   ggtitle("b)") +
-  stat_smooth(method = NULL,aes(y = predict(y, Ext_col_data_network))) +
+  stat_smooth(method = NULL,aes(y = predict(y, Ext_col_data_network)),colour="black") +
   scale_color_viridis_d()+
   annotate("text", x = .5, y = 1, label = "R^2 == 0.91", parse = TRUE) +
   labs(x="Predator Observed Occupancy",y="Predator Predicted Occupancy")+
@@ -761,9 +728,10 @@ da<-Ext_col_data_network%>%
 y2<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_glm)
 pred.a<-Ext_col_data_glm%>%
   ggplot(aes(x=prey.occupancy,y=pred.prey.oc))+ 
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("c)") +
-  stat_smooth(method = NULL,aes(y = predict(y2, Ext_col_data_glm)),se=F) +
+  #geom_smooth()+
+  stat_smooth(method = NULL,aes(y = predict(y2, Ext_col_data_glm)),se=F, colour="black") +
   scale_color_viridis_d()+
   annotate("text", x = .75, y = 1, label = "R^2 == 0.74", parse = TRUE) +
   labs(x="Prey Observed Occupancy",y="Prey Predicted Occupancy")+
@@ -776,9 +744,9 @@ pred.a<-Ext_col_data_glm%>%
 y3<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_glm)
 pred.b<-Ext_col_data_glm%>%
   ggplot(aes(x=pred.occupancy,y=pred.pred.oc))+ 
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("d)") +
-  stat_smooth(aes(y = predict(y3, Ext_col_data_glm)),se=T) +
+  stat_smooth(aes(y = predict(y3, Ext_col_data_glm)),se=T, colour="black") +
   scale_color_viridis_d()+
   annotate("text", x = .2, y = 1, label = "R^2 == 0.96", parse = TRUE) +
   labs(x="Predator Observed Occupancy",y="Predator Predicted Occupancy")+
@@ -789,9 +757,9 @@ pred.b<-Ext_col_data_glm%>%
 #6e: prey occupancy bottle level from colonization prob
 pred.c1<-Ext_col_data_glm%>%
   ggplot(aes(x=prey.occupancy,y=colonization_prob_prey))+ 
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("e)") +
-  stat_smooth(linetype= "dashed",method = glm, method.args = list(family = binomial(link = "logit")),se=F)+
+  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F,colour="black")+
   scale_color_viridis_d()+
   annotate("text", x = .75, y = .75, label = "R^2 == 0.05", parse = TRUE) +
   labs(y="Prey Colonization Probability",x="Prey Observed Occupancy")+
@@ -802,9 +770,9 @@ pred.c1<-Ext_col_data_glm%>%
 #6e: prey occupancy bottle level from extinction prob
 pred.e1<-Ext_col_data_glm%>%
   ggplot(aes(x=prey.occupancy,y=extinction_prob_prey))+
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("g)") +
-  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F)+
+  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F, colour="black")+
   scale_color_viridis_d()+
   annotate("text", x = .75, y = .2, label = "R^2 == 0.29", parse = TRUE) +
   labs(y="Prey Extinction Probaility",x="Prey Observed Occupancy")+
@@ -815,9 +783,9 @@ pred.e1<-Ext_col_data_glm%>%
 #6e: predator occupancy bottle level from colonization prob
 pred.d1<-Ext_col_data_glm%>%
   ggplot(aes(x=pred.occupancy,y=colonization_prob_pred))+ 
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("f)") +
-  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F)+
+  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F,colour="black")+
   scale_color_viridis_d()+
   annotate("text", x = .2, y = .75, label = "R^2 == 0.40", parse = TRUE) +
   labs(y="Predator Colonization Probaility",x="Predator Observed Occupancy")+
@@ -828,14 +796,16 @@ pred.d1<-Ext_col_data_glm%>%
 #6e: predator occupancy bottle level from extinction prob
 pred.f1<-Ext_col_data_glm%>%
   ggplot(aes(x=pred.occupancy,y=extinction_prob_pred))+ 
-  geom_point()+
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
   ggtitle("h)") +
-  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F)+
+  stat_smooth(method = glm, method.args = list(family = binomial(link = "logit")),se=F,colour="black")+
   scale_color_viridis_d()+
   annotate("text", x = .2, y = .75, label = "R^2 == 0.35", parse = TRUE) +
   labs(y="Predator Extinction Probability ",x="Predator Observed Occupancy")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank()) +guides(col=guide_legend("structure"),shape=guide_legend("connectivity"))+
+  theme(legend.position = c(0.8,0.7),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+                                                                                                                                                  #+ theme(legend.position = "none")
 
 
 ###############
