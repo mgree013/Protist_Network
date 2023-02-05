@@ -553,5 +553,5 @@ ent<-merged_all_pred%>%full_join(merged_all_prey)%>%
   full_join(merged_two_pred)%>%full_join(merged_two_prey)%>%
   full_join(merged_three_pred)%>%full_join(merged_three_prey)
 
-write.csv(ent, "new_occup_model_2.csv")
+write.csv(ent, "new_occup_model_3.csv")
 

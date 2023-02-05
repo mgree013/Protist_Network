@@ -206,7 +206,8 @@ f<-prop_pa_rep_no_t%>%
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) + theme(legend.position = "none")
 
-plot_grid(aa,bb,a,b,c,d,e,f,ncol=2)
+#plot_grid(aa,bb,a,b,c,d,e,f,ncol=2)
+plot_grid(bb,b,d,f,ncol=2)
 
 ################################################################################################################################################################
 #Figure 5: Colonization/Extinction
