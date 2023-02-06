@@ -75,6 +75,7 @@ bb.prey<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("a)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -84,6 +85,7 @@ bb.pred<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("b)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -103,6 +105,7 @@ b.prey<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("c)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -112,6 +115,7 @@ b.pred<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("d)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -130,6 +134,7 @@ d.prey<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("e)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -139,6 +144,7 @@ d.pred<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("f)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(axis.title.x=element_blank(),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -158,6 +164,7 @@ f.prey<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=prey, fill=structure))+ 
   geom_boxplot()+
   ggtitle("g)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Prey Occupancy Proportion")+
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -167,14 +174,16 @@ f.pred<-prop_pa_rep_no_t%>%
   ggplot(aes(x=as.factor(connectivity),y=predator, fill=structure))+ 
   geom_boxplot()+
   ggtitle("h)") +
+  ylim(0,1)+
   scale_fill_viridis(discrete = TRUE)+
   labs(x="Connectivity",y="Predator Occupancy Proportion")+
   theme(strip.text.x = element_text(size = 12),axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank()) +theme(legend.position = c(0.15, 0.9),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+        panel.border = element_blank(),panel.background = element_blank()) +theme(legend.position = c(0.86, 0.3),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
 
 #plot_grid(aa,bb,a,b,c,d,e,f,ncol=2)
 #plot_grid(bb,b,d,f,ncol=2)
 plot_grid(bb.prey,bb.pred,b.prey,b.pred,d.prey,d.pred,f.prey,f.pred,ncol=2)
+plot_grid(bb.prey,f.prey,ncol=2)
 
 ################################################################################################################################################################
 #Figure 5: Colonization/Extinction
@@ -698,7 +707,7 @@ Ext_col_data_network<-newer_pa_datas%>%
 y1<-betareg(pred.prey.oc~prey.occupancy, data=Ext_col_data_network)
 dc<-Ext_col_data_network%>%
   ggplot(aes(x=prey.occupancy,y=pred.prey.oc))+ 
-  geom_point()+
+  geom_point(aes(colour=structure))+
   ggtitle("a)") +
   stat_smooth(method = NULL,aes(y = predict(y1, Ext_col_data_network)),colour="black") +
   scale_color_viridis_d()+
@@ -713,7 +722,7 @@ dc<-Ext_col_data_network%>%
 y<-betareg(pred.pred.oc~pred.occupancy, data=Ext_col_data_network)
 da<-Ext_col_data_network%>%
   ggplot(aes(x=pred.occupancy,y=pred.pred.oc))+ 
-  geom_point()+
+  geom_point(aes(colour=structure))+
   ggtitle("b)") +
   stat_smooth(method = NULL,aes(y = predict(y, Ext_col_data_network)),colour="black") +
   scale_color_viridis_d()+
@@ -804,7 +813,7 @@ pred.f1<-Ext_col_data_glm%>%
   labs(y="Predator Extinction Probability ",x="Predator Observed Occupancy")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) +guides(col=guide_legend("structure"),shape=guide_legend("connectivity"))+
-  theme(legend.position = c(0.8,0.7),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
+  theme(legend.position = c(0.75,0.7),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))
                                                                                                                                                   #+ theme(legend.position = "none")
 
 
