@@ -182,7 +182,9 @@ f.pred<-prop_pa_rep_no_t%>%
 
 #plot_grid(aa,bb,a,b,c,d,e,f,ncol=2)
 #plot_grid(bb,b,d,f,ncol=2)
-plot_grid(bb.prey,bb.pred,b.prey,b.pred,d.prey,d.pred,f.prey,f.pred,ncol=2)
+p<-plot_grid(bb.prey,bb.pred,b.prey,b.pred,d.prey,d.pred,f.prey,f.pred,ncol=2)
+ggsave("figure4.png", plot = p, width = 30, height = 40, units = "cm")
+
 plot_grid(bb.prey,f.prey,ncol=2)
 
 ################################################################################################################################################################
@@ -818,4 +820,64 @@ pred.f1<-Ext_col_data_glm%>%
 
 
 ###############
-plot_grid(dc,da,pred.a,pred.b,pred.c1,pred.d1,pred.e1,pred.f1,ncol=2)
+a<-plot_grid(dc,da,pred.a,pred.b,ncol=2)
+ggsave("figure4.short.png", plot = a, width = 30, height = 20, units = "cm")
+
+a<-plot_grid(dc,da,pred.a,pred.b,pred.c1,pred.d1,pred.e1,pred.f1,ncol=2)
+ggsave("figure4.png", plot = a, width = 30, height = 40, units = "cm")
+
+y1<-betareg(prey.occupancy~pred.prey.oc, data=Ext_col_data_network)
+dc<-Ext_col_data_network%>%
+  ggplot(aes(x=pred.prey.oc ,y=prey.occupancy))+ 
+  geom_point(aes(colour=structure))+
+  ggtitle("a)") +
+  stat_smooth(method = NULL,aes(y = predict(y1, Ext_col_data_network)),colour="black") +
+  scale_color_viridis_d()+
+  annotate("text", x = .89, y = 1, label = "R^2 == 0.42", parse = TRUE) +
+  labs(y="Prey Observed Occupancy",x="Prey Predicted Occupancy")+
+  theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+
+y<-betareg(pred.occupancy~pred.pred.oc, data=Ext_col_data_network)
+da<-Ext_col_data_network%>%
+  ggplot(aes(x=pred.pred.oc ,y=pred.occupancy))+ 
+  geom_point(aes(colour=structure))+
+  ggtitle("b)") +
+  stat_smooth(method = NULL,aes(y = predict(y, Ext_col_data_network)),colour="black") +
+  scale_color_viridis_d()+
+  annotate("text", x = .5, y = 1, label = "R^2 == 0.91", parse = TRUE) +
+  labs(y="Predator Observed Occupancy",x="Predator Predicted Occupancy")+
+  theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+
+y2<-betareg(prey.occupancy~pred.prey.oc, data=Ext_col_data_glm)
+pred.a<-Ext_col_data_glm%>%
+  ggplot(aes(x=pred.prey.oc,y=prey.occupancy))+ 
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
+  ggtitle("c)") +
+  #geom_smooth()+
+  stat_smooth(method = NULL,aes(y = predict(y2, Ext_col_data_glm)),se=F, colour="black") +
+  scale_color_viridis_d()+
+  annotate("text", x = .75, y = 1, label = "R^2 == 0.74", parse = TRUE) +
+  labs(y="Prey Observed Occupancy",x="Prey Predicted Occupancy")+
+  theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+
+####################################################
+#6d: Predator occupancy bottle level
+
+y3<-betareg(pred.occupancy~pred.pred.oc, data=Ext_col_data_glm)
+pred.b<-Ext_col_data_glm%>%
+  ggplot(aes(x=pred.pred.oc,y=pred.occupancy))+ 
+  geom_point(aes(colour=structure, shape=as.factor(connectivity)))+
+  ggtitle("d)") +
+  stat_smooth(aes(y = predict(y3, Ext_col_data_glm)),se=T, colour="black") +
+  scale_color_viridis_d()+
+  annotate("text", x = .2, y = 1, label = "R^2 == 0.96", parse = TRUE) +
+  labs(y="Predator Observed Occupancy",x="Predator Predicted Occupancy")+
+  theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.border = element_blank(),panel.background = element_blank())+guides(col=guide_legend("structure"),shape=guide_legend("connectivity"))+
+  theme(legend.position = c(0.8,0.24),legend.background = element_blank(),legend.box.background = element_rect(colour = "black"))+theme(legend.box = "horizontal")
+
+a<-plot_grid(dc,da,pred.a,pred.b,ncol=2)
+ggsave("figure4.short.new.png", plot = a, width = 30, height = 20, units = "cm")
