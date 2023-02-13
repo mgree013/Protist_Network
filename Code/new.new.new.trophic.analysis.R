@@ -590,14 +590,14 @@ merged_three_pred<-merged%>%arrange(aic)%>%mutate(delta_aic=aic-min(aic))%>%muta
 env_density_prey<-env_density%>%
   filter(day > 150)
 
-model1_three_period_prey  <- HLCor(ln.prey ~ bac.density_log  + ln.pred+ (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model1_three_period_prey  <- HLCor(ln.prey ~ bac.density_log  + ln.pred+ (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_prey, adjMatrix = as.matrix(adj_matrix))
 #summary(model2_all_period_prey, corr = FALSE)
 
-model2_three_period_prey <- HLCor(ln.prey ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model2_three_period_prey <- HLCor(ln.prey ~ bac.density_log  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_prey, adjMatrix = as.matrix(adj_matrix))
 
-model3_three_period_prey <- HLCor(ln.prey ~  ln.pred  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model3_three_period_prey <- HLCor(ln.prey ~  ln.pred  + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_prey, adjMatrix = as.matrix(adj_matrix))
 
-model4_three_period_prey <- HLCor(ln.prey ~ 1 + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_pred, adjMatrix = as.matrix(adj_matrix))
+model4_three_period_prey <- HLCor(ln.prey ~ 1 + (1|rep) + adjacency(1|bottle.number), family = gaussian, data = env_density_prey, adjMatrix = as.matrix(adj_matrix))
 #summary(model4_last_period_pred, corr = FALSE)
 
 mod1_aic<-extractAIC(model1_three_period_prey)

@@ -617,26 +617,31 @@ a4<-env_density_3%>%
   ggplot(aes(x=(bac.density_log),y=density, colour=species))+ 
   geom_point()+
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
-  ggtitle("g)")+
+  ggtitle("a)")+
   scale_color_viridis_d()+
   annotate("text", x = 11.56, y = 8, label = "Predator: R^2 == 0.08", parse = TRUE) +
-  annotate("text", x = 11.5, y = 6.5, label = "Prey: R^2 == 0.09", parse = TRUE) +
+  annotate("text", x = 11.5, y = 7, label = "Prey: R^2 == 0.09", parse = TRUE) +
   labs(x="Bacteria density",y=" Predator-Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = "none")
+        panel.border = element_blank(),panel.background = element_blank())+ theme(legend.position = c(0.8, 0.9),  legend.background = element_blank(),
+                                                                                  legend.box.background = element_rect(colour = "black"))
 
 b4<-env_density2_3%>%
   ggplot(aes(x=(pred),y=prey))+ 
   geom_point()+
   stat_smooth(method = glm, method.args = list(family=gaussian(link = "identity")))+
-  ggtitle("h)")+
+  ggtitle("b)")+
   scale_color_viridis_d()+
   annotate("text", x = 1, y = 7, label = "R^2 == 0.67", parse = TRUE) +
   labs(x="Predator density",y=" Prey Density")+
   theme(axis.line = element_line(colour = "black"),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.border = element_blank(),panel.background = element_blank()) 
 
-plot_grid(a1,b1,a2,b2,a3,b3,a4,b4, ncol=2)
+#plot_grid(a1,b1,a2,b2,a3,b3,a4,b4, ncol=2)
+z<-plot_grid(a4,b4, ncol=2)
+ggsave("figure7.trophic.2.png", plot = z, width = 35, height = 20, units = "cm")
+
+
 ##################################################################################################################################################################################################################
 #Figure 6:
 
