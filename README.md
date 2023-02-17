@@ -2,7 +2,7 @@
 
 Title: Long transients and network structure effect persistence and spatial predator-prey dynamics in experimental microcosms
 
-Status of MS: Submitted to Jounral of Animal Ecology
+Status of MS: Re-submitted to Jounral of Animal Ecology
 
 Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderson
 
@@ -30,23 +30,19 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig 3: Predator-Prey Occupancy Dynamics
-![](Newfigs/Fig3.png)
+![](Newfigs/new.fif4.png)
 
 
 ### Fig 4: Predator-Prey Extinction Dynamics
 ![](Figs/Fig4.png)
 
 
-### Fig. 5: Predator-Prey Colonization and Extinction Dynamics
-![](Figs/Fig5.jpg)
+### Fig. 5: Predator Prey Predicted Occupancy Dynamics
+![](Newfigs/figure6.short.new.png)
 
 
-### Fig. 6: Predator Prey Predicted Occupancy Dynamics
-![](Figs/Fig6.png)
-
-
-### Fig. 7:Trophic Dynamics
-![](Newfigs/fig7.png)
+### Fig. 6:Trophic Dynamics
+![](Newfigs/figure7.trophic.2.png)
 
 
 # Supplemental
@@ -57,3 +53,4 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 #### Fig S2: Spatial CV Dynamics
 ![](Figs/FigS2.png)
+
