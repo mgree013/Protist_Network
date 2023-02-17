@@ -34,7 +34,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig 4: Predator-Prey Extinction Dynamics
-![](Figs/Picture2.png)
+![](Newfigs/Picture2.png)
 
 
 ### Fig. 5: Predator Prey Predicted Occupancy Dynamics
