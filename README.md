@@ -53,3 +53,4 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 #### Fig S2: Spatial CV Dynamics
 ![](Figs/FigS2.png)
+
