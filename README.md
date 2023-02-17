@@ -42,7 +42,7 @@ Authors: Matthew D. Green, Clara A. Woodie, Megan Whitesell, and Kurt E. Anderso
 
 
 ### Fig. 6: Predator Prey Predicted Occupancy Dynamics
-![](Figs/Fig6.png)
+![](Newfigs/figure6.short.new.png)
 
 
 ### Fig. 7:Trophic Dynamics
